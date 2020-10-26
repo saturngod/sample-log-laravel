@@ -23,6 +23,11 @@
         
       </div>
       <div class="collapse navbar-collapse" id="navbar-menu">
+        <ul class="navbar-nav pt-lg-3">
+          
+          <x-nav-link href="{{route('home')}}" icon="fa-home">Home</x-nav-link>
+        </ul>
+        
       <form action="{{route('auth.logout')}}" method="post">
         @csrf
         <input type="submit" class="btn btn-danger w-100" value="Logout">
