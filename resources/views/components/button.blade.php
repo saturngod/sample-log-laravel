@@ -1,0 +1,1 @@
+<a href="{{$href}}" class="btn btn-{{$type}} {{$block =='true' ? 'btn-block' : ''}}">{{ $slot }}</a>
