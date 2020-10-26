@@ -9,7 +9,7 @@ use Log;
 class DashboardController extends Controller
 {
     public function home(Request $request) {
-        $logs = Logs::orderBy('id', 'desc')->take(50)->get();
+        $logs = Logs::orderBy('id', 'desc')->simplePaginate(50);
 
         $from_date = date("Y-m-d");
         $to_date = date("Y-m-d");
@@ -50,7 +50,7 @@ class DashboardController extends Controller
             $text = $request->text;
             $logs->whereRaw("MATCH (text) AGAINST ('$request->text' WITH QUERY EXPANSION)");
         }
-        $logs = $logs->get();
+        $logs = $logs->simplePaginate(50);
 
         return view("admin",compact('logs','from_date','to_date','channel','type','text'));
         

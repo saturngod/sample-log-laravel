@@ -58,6 +58,11 @@
         </tbody>
     </table>
     </div>
+
+    <div class="row">
+      {{ $logs->links() }}
+    </div>
+
 </x-card>
 
 @endsection
