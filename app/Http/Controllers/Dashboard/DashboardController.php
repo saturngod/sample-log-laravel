@@ -11,8 +11,8 @@ class DashboardController extends Controller
     public function home(Request $request) {
         $logs = Logs::orderBy('id', 'desc')->simplePaginate(50);
 
-        $from_date = date("Y-m-d");
-        $to_date = date("Y-m-d");
+        $from_date = date("Y-m-d") . " 00:00";
+        $to_date = date("Y-m-d"). " 23:59";
         $channel = "";
         $type = "";
         $text = "";
@@ -23,8 +23,8 @@ class DashboardController extends Controller
         
         $logs = Logs::query();
 
-        $from_date = date("Y-m-d");
-        $to_date = date("Y-m-d");
+        $from_date = date("Y-m-d") . "00:00";
+        $to_date = date("Y-m-d"). "23:59";
         $channel = "";
         $type = "";
         $text = "";
@@ -34,7 +34,7 @@ class DashboardController extends Controller
             $from_date = $request->from_date;
             $to_date = $request->to_date;
 
-            $logs->whereDate('created_at', '>=', $request->from_date)->whereDate('created_at', '<=', $request->to_date);
+            $logs->where('created_at', '>=', $request->from_date)->where('created_at', '<=', $request->to_date);
         }
         if($request->channel != null || $request->channel != "") {
             $channel = $request->channel;

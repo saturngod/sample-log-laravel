@@ -18,9 +18,14 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <!-- CSS files -->
-    <link href={{ asset("libs/jqvmap/dist/jqvmap.min.css") }} rel="stylesheet"/>
-    <link href={{ asset("css/tabler.min.css") }} rel="stylesheet"/>
-    <link href={{ asset("css/demo.min.css") }} rel="stylesheet"/>
+    <link href="{{ asset("libs/jqvmap/dist/jqvmap.min.css") }}" rel="stylesheet"/>
+    <link href="{{ asset("css/tabler.min.css") }}" rel="stylesheet"/>
+    <link href="{{ asset("css/demo.min.css") }}" rel="stylesheet"/>
+
+    <link href="{{ asset("libs/selectize/dist/css/selectize.css") }}" rel="stylesheet"/>
+    <link href="{{ asset("libs/flatpickr/dist/flatpickr.min.css") }}" rel="stylesheet"/>
+    <link href="{{ asset("libs/nouislider/distribute/nouislider.min.css") }}" rel="stylesheet"/>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
     @yield('header')
   </head>
@@ -75,7 +80,18 @@
     <script src="{{asset("libs/jqvmap/dist/jquery.vmap.min.js")}}"></script>
     <script src="{{asset("libs/jqvmap/dist/maps/jquery.vmap.world.js")}}"></script>
     <script src="{{asset("libs/peity/jquery.peity.min.js")}}"></script>
+
+    <script src="{{asset("libs/autosize/dist/autosize.min.js")}}"></script>
+    <script src="{{asset("libs/imask/dist/imask.min.js")}}"></script>
+    <script src="{{asset("libs/selectize/dist/js/standalone/selectize.min.js")}}"></script>
+    <script src="{{asset("libs/flatpickr/dist/flatpickr.min.js")}}"></script>
+    <script src="{{asset("libs/flatpickr/dist/plugins/rangePlugin.js")}}"></script>
+    <script src="{{asset("libs/nouislider/distribute/nouislider.min.js")}}"></script>
+
     <!-- Tabler Core -->
     <script src="{{asset("js/tabler.min.js")}}"></script>
+
+    @yield('js')
+        
   </body>
 </html>

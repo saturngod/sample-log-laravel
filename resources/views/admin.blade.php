@@ -12,9 +12,11 @@
     <div class="row mb-1">
         <div class="col-3">
             <label class="form-label">Datepicker</label>
-            <input name="from_date" id="calendar-simple" type="date" value="{{$from_date}}" class="form-control mb-2" placeholder="Select a date" />
+            From
+            <input name="from_date" id="from-date"  value="{{$from_date}}" class="form-control mb-2" placeholder="Select a date" />
+            To
             <div class="input-icon">
-              <input name="to_date" id="calendar-time" type="date" value="{{$to_date}}" class="form-control" placeholder="Select a date" />
+              <input name="to_date" id="to-date"  value="{{$to_date}}" class="form-control" placeholder="Select a date" />
             </div>
         </div>
           <div class="col-3">
@@ -65,4 +67,20 @@
 
 </x-card>
 
+@endsection
+
+@section('js')
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  flatpickr(document.getElementById('from-date'), {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+  });
+
+  flatpickr(document.getElementById('to-date'), {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+  });
+});    
+</script>
 @endsection
