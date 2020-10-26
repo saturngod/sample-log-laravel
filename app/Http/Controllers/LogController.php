@@ -8,7 +8,11 @@ use App\Jobs\ProcessLog;
 class LogController extends Controller
 {
     function write(Request $request) {
-        if($request->token == "12976903nasdjohynaddfhjl$1289") {
+        
+        if(request()->getHttpHost() != env("LOG_ADDRESS")) {
+            return abort(401);
+        }
+        if($request->token == env("LOG_TOKEN")) {
             if($request->text != "" && $request->text != null) {
 
                 $channel = $request->channel;
