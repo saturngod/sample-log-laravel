@@ -12,9 +12,9 @@
     <div class="row mb-1">
         <div class="col-3">
             <label class="form-label">Datepicker</label>
-            From
+            
             <input name="from_date" id="from-date"  value="{{$from_date}}" class="form-control mb-2" placeholder="Select a date" />
-            To
+            
             <div class="input-icon">
               <input name="to_date" id="to-date"  value="{{$to_date}}" class="form-control" placeholder="Select a date" />
             </div>
