@@ -50,7 +50,7 @@ class DashboardController extends Controller
             $text = $request->text;
             $logs->whereRaw("MATCH (text) AGAINST ('$request->text' WITH QUERY EXPANSION)");
         }
-        $logs = $logs->simplePaginate(50);
+        $logs = $logs->orderBy('id', 'desc')->simplePaginate(50);
 
         return view("admin",compact('logs','from_date','to_date','channel','type','text'));
         
