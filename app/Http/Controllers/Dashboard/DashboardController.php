@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Logs;
-
+use Log;
 class DashboardController extends Controller
 {
     public function home(Request $request) {
@@ -54,5 +54,10 @@ class DashboardController extends Controller
 
         return view("admin",compact('logs','from_date','to_date','channel','type','text'));
         
+    }
+
+    public function testLog() {
+        Log::info('WTF');
+        return "done";
     }
 }

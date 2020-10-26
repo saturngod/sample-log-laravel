@@ -33,3 +33,4 @@ Route::prefix('backend')->group(function () {
 
 
 Route::post('/log', [LogController::class, 'write'])->name("log.write");
+Route::get('/test', [DashboardController::class, 'testLog'])->name("log.test");

@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('LOG_CHANNEL', 'stack'),
+    'default' => env('LOG_CHANNEL', 'custom'),
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +40,15 @@ return [
             'channels' => ['single'],
             'ignore_exceptions' => false,
         ],
-
+        'custom' => [
+            'driver' => 'custom',
+            'via' => App\Logging\SampleLogger::class,
+            'channel' => 'mylog',
+            'with' => [
+                'address' => 'http://127.0.0.1:8000/log',
+                'token' => env('LOG_TOKEN')
+            ]
+        ],
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),

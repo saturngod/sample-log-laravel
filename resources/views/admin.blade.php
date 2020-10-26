@@ -44,16 +44,16 @@
             <th>Channel</th>
             <th>Type</th>
             <th>Text</th>
-            
           </tr>
         </thead>
         <tbody>
             @foreach ($logs as $log)
+            <tr>
                 <td>{{$log->created_at}}</td>
                 <td>{{$log->channel}}</td>
                 <td>{{$log->type}}</td>
                 <td>{{$log->text}}</td>
-                
+            </tr>
             @endforeach
         </tbody>
     </table>
