@@ -21,3 +21,25 @@ Send the **POST** request to `/log`
 	"text" : "why why tell me please aaa"
 }
 ```
+
+
+For the client side
+
+Please add following code in logging.php
+
+```php
+'custom' => [
+            'driver' => 'custom',
+            'via' => App\Logging\SampleLogger::class,
+            'channel' => 'mylog',
+            'with' => [
+                'address' => 'http://127.0.0.1:8000/log',
+                'token' => env('LOG_TOKEN')
+            ]
+        ],
+```
+
+And use the custom in .env like `LOG_CHANNEL=custom`.
+
+Copy Logging folder to app\Logging folder of your project.
+

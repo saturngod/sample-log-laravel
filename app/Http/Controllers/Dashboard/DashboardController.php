@@ -57,7 +57,7 @@ class DashboardController extends Controller
     }
 
     public function testLog() {
-        Log::info('WTF');
+        Log::info('how many seconds');
         return "done";
     }
 }
