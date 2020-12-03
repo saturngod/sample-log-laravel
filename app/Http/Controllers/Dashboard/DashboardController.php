@@ -57,7 +57,11 @@ class DashboardController extends Controller
     }
 
     public function testLog() {
-        Log::info('how many seconds');
+        $msg = array(
+            "photo" => "data:image\/jpeg;base64,\/9j\/4AAQSkZJRg"
+        );
+
+        Log::info($msg);
         return "done";
     }
 }

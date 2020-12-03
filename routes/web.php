@@ -23,7 +23,6 @@ Route::prefix('backend')->group(function () {
         return "ERROR";
     });
     Route::post('logout', [AuthController::class,'logout'])->name('auth.logout');
-
     Route::group(['middleware' => ['auth']], function () {
         Route::get('/',[DashboardController::class, 'home'])->name("home"); 
         Route::get('/search',[DashboardController::class, 'search'])->name("home.search"); 

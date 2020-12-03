@@ -33,9 +33,7 @@ class LogController extends Controller
                 
 
                 ProcessLog::dispatch($channel,$type,$text);
-                return "success";
-
-
+                return "";
             }
         }
         return abort(401);

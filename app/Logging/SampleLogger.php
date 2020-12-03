@@ -11,5 +11,6 @@ class SampleLogger
      
         $logger = new Logger($config['channel']);
         return $logger->pushHandler(new SampleLogHandler(Logger::DEBUG,true,$config['with']));
+        
     }
 }

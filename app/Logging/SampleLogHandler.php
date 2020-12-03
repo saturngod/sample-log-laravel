@@ -12,14 +12,22 @@ class SampleLogHandler extends AbstractProcessingHandler{
         $this->config = $with;
         parent::__construct($level, $bubble);
     }
+
+
     protected function write(array $record):void
     {
-        
+
+        $text = $record["message"];
+
+        $re = '/("|\')data:image(.+);base64,(.+)("|\')/m';
+        $subst = '"[IMAGE FILE]"';
+        $text =  preg_replace($re, $subst, $text);
+
         $json = [
         "token" => $this->config["token"],
         "channel" => $record["channel"],
         "type" => $record["level_name"],
-        "text" => $record["message"]
+        "text" => $text
         ];
         
         $curl = curl_init();
@@ -39,11 +47,9 @@ class SampleLogHandler extends AbstractProcessingHandler{
         ],
         ]);
 
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-
+        curl_exec($curl);
         curl_close($curl);
-
+   
 
         
     }
