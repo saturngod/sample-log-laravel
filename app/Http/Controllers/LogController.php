@@ -10,7 +10,7 @@ class LogController extends Controller
     function write(Request $request) {
         
         if(request()->getHttpHost() != env("LOG_ADDRESS")) {
-            return abort(401);
+            return "";
         }
         if($request->token == env("LOG_TOKEN")) {
             if($request->text != "" && $request->text != null) {
@@ -28,7 +28,7 @@ class LogController extends Controller
 
                 if($text == null || $text == "") {
                     //not saving
-                    return abort(401);
+                    return "";
                 }
                 
 
@@ -36,6 +36,6 @@ class LogController extends Controller
                 return "";
             }
         }
-        return abort(401);
+        return "";
     }
 }
